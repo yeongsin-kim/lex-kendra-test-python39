@@ -132,7 +132,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Layers: [!Ref CrHelperLayer]
-      Runtime: python3.6          
+      Runtime: python3.9
       Timeout: 900
       Role: !GetAtt KendraIndexIAMRole.Arn
       MemorySize: 256
@@ -146,8 +146,7 @@ Resources:
     Type: AWS::Lambda::LayerVersion
     Properties:
       CompatibleRuntimes:
-        - python3.6
-        - python3.7
+        - python3.9
       Content:
         S3Bucket: !Ref ArtifactsS3BucketName
         S3Key: !Sub "${QSS3KeyPrefix}functions/packages/lambda_layers/lambda_layers.zip"
